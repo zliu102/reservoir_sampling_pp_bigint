@@ -79,8 +79,8 @@ res_trans_crimes_c_pp_bigint(PG_FUNCTION_ARGS)
       //  elog(INFO, "states is %p",states); 
     //}
     if (!initialized) {
-        
-        for (int i = 0;i<MAX_GROUPS;i++){
+        int i;
+        for (i = 0;i<MAX_GROUPS;i++){
             states_2[i]= (state_c *) palloc0(sizeof(state_c));
             //elog(INFO, "states_2 is %p",states_2[i]); 
         }
