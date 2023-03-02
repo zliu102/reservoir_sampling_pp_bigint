@@ -192,6 +192,7 @@ finalize_trans_crimes_c_pp_bigint(PG_FUNCTION_ARGS)
                 //pfree(addr);
                 //initialized = false;
                 //elog(INFO, "before retrun initialized is %d",initialized);
+                initialized = false;
                 PG_RETURN_ARRAYTYPE_P(result);
                 //PG_RETURN_ARRAYTYPE_P(st->reservoir); 
 }
