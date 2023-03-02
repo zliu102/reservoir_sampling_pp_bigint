@@ -70,9 +70,9 @@ res_trans_crimes_c_pp_bigint(PG_FUNCTION_ARGS)
     int64 lastgroup = PG_GETARG_INT64(0);
     int64 group_index = PG_GETARG_INT64(1);
     int64 newsample = PG_GETARG_INT64(2);
-    elog(INFO, "lastgroup is %ld",lastgroup);
-    elog(INFO, "group_index is %ld",group_index);
-    elog(INFO, "newsample is %ld",newsample);   
+    //elog(INFO, "lastgroup is %ld",lastgroup);
+    //elog(INFO, "group_index is %ld",group_index);
+    //elog(INFO, "newsample is %ld",newsample);   
     //state_c *s = palloc (sizeof(state_c));
     //if (states == NULL) {
      //   states = (state_c **) palloc0(MAX_GROUPS * sizeof(state_c *));
@@ -92,7 +92,7 @@ res_trans_crimes_c_pp_bigint(PG_FUNCTION_ARGS)
     if (lastgroup != group_index){
           
             state_c *st0 = (state_c *) palloc (sizeof(state_c));
-            elog(INFO, "st0 is %p",st0);   
+            //elog(INFO, "st0 is %p",st0);   
             //addr = (bytea *) palloc(sizeof(st0) + sizeof(bytea));
             //SET_VARSIZE(addr,sizeof(st0)+sizeof(bytea));      
             st0->poscnt = 1;
@@ -114,8 +114,8 @@ res_trans_crimes_c_pp_bigint(PG_FUNCTION_ARGS)
         //void **new_ptr = (void **) VARDATA(addr);
        // s= (state_c *) states[group_index-1];
         state_c *s =(state_c *) states_2[group_index - 1];
-        elog(INFO, "s is %p",s);
-        elog(INFO, "s poscnt is %d,reservoir_size is %d",s->poscnt,s->reservoir_size);
+        //elog(INFO, "s is %p",s);
+        //elog(INFO, "s poscnt is %d,reservoir_size is %d",s->poscnt,s->reservoir_size);
         if(s->poscnt <= s->reservoir_size){
         //    elog(INFO, "case 1");
             int32 p = s->poscnt;
@@ -135,7 +135,7 @@ res_trans_crimes_c_pp_bigint(PG_FUNCTION_ARGS)
             }
             s->poscnt ++;
         }
-        elog(INFO, "----------------"); 
+        //elog(INFO, "----------------"); 
         //lastgroup = group_index;
         //pfree(s);
         PG_RETURN_INT64(group_index);
